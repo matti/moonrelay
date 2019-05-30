@@ -33,6 +33,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'clamp'
   spec.add_dependency 'websocket-eventmachine-server'
+  spec.add_dependency 'eventmachine'
+  spec.add_dependency 'faye-websocket'
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"

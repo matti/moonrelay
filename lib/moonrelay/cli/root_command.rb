@@ -11,6 +11,8 @@ module Moonrelay
       end
 
       subcommand ["server"], "start server", Moonrelay::Cli::ServerCommand
+      subcommand ["expose"], "expose a local service", Moonrelay::Cli::ExposeCommand
+      subcommand ["proxy"], "proxy local port to a remote service", Moonrelay::Cli::ProxyCommand
 
       def self.run
         super

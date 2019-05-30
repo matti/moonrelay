@@ -23,6 +23,7 @@ module Moonrelay::Server
           $channels[handshake.path].each do |object_id, subscriber|
             unless subscriber == ws
               delivered = true
+              p [type, msg]
               subscriber.send msg, type: type
             end
           end
@@ -34,7 +35,7 @@ module Moonrelay::Server
 
         ws.onclose do
           handshake = ws.instance_eval("@handshake")
-          $channels[handshake.path].delete ws.object_id
+          #$channels[handshake.path].delete ws.object_id
         end
       end
 
