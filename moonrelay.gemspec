@@ -14,8 +14,21 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/matti/moonrelay"
   spec.license       = "MIT"
 
+  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
+    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  end
+  ignored_files = [
+    "Dockerfile", "docker-compose.yml",
+    ".dockerignore",".gitignore",
+    ".ruby-gemset",".ruby-version",
+    ".rspec",
+    ".travis.yml"
+  ]
+  spec.files = spec.files - ignored_files
+
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'clamp'

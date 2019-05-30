@@ -8,5 +8,5 @@ RUN mv moonrelay*.gem moonrelay.gem
 FROM ruby:2.6.1
 
 COPY --from=builder /build/moonrelay.gem .
-RUN gem install moonrelay.gem
-ENTRYPOINT [ "/bin/bash" ]
+RUN gem install moonrelay.gem && rm moonrelay.gem
+ENTRYPOINT [ "/usr/local/bundle/bin/moonrelay", "server" ]

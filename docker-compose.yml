@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  moonrelay:
+    build: .
+    image: mattipaksula/moonrelay
+    ports:
+      - 8080:8080
