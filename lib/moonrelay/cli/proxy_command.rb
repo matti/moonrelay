@@ -66,7 +66,7 @@ module Moonrelay
               puts ""
               puts "----"
               p ["->", m.encoding, m]
-              if m.encoding.name == "ASCII-8BIT"
+              if m.encoding == Encoding::BINARY
                 ws.send m.unpack("C*")
               else
                 ws.send m
